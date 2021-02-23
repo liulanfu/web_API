@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 300px;
+        height: 100px;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    .box .big {
+        height: 40px;
+        /* width: 250px; */
+        border: 1px solid #999;
+        font-size: 23px;
+        position: relative;
+        box-shadow: 0 0 10px #666;
+        display: none;
+        white-space: nowrap;;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .big::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 8px solid;
+        /* border-color: red; */
+        border-color: #fff transparent transparent;
+        bottom: -16px;
+        left: 20px;
+    }
+
+    input {
+        position: absolute;
+        bottom: 0;
+        margin: 10px 0px;
+        width: 250px;
+        height: 30px;
+        font-size: 16px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="big"></div>
+        <input type="text">
+    </div>
+    <script>
+        // let inp = document.querySelector('input');
+        // let big = document.querySelector('.big');
+        // inp.addEventListener('keyup', function () {
+        //     if (inp.value.trim() == "") {
+        //         big.style.display = 'none';
+        //     } else {
+        //         big.innerText = this.value;
+        //         big.style.display='block';
+        //     }
+        // });
+        // inp.addEventListener('blur',function(){
+        //     big.style.display='none';
+        // });
+        // inp.addEventListener('focus',function(){
+        //     if(this.value!=''){
+        //         big.style.display='block';
+        //     }
+        // });
+
+        let inp = document.querySelector('input');
+        let big = document.querySelector('.big');
+        inp.addEventListener('keyup', function () {
+            const value=inp.value.trim();
+            //此处value==='' 等价于 ！value
+            if (!value)  return big.style.display = 'none';
+
+                big.innerText = this.value;
+                big.style.display='block';
+    
+        });
+        inp.addEventListener('blur',function(){
+            big.style.display='none';
+        });
+        inp.addEventListener('focus',function(){
+            const value=inp.value.trim();
+            //此处value！=='' 等价于value或!!value
+            if(value){
+                big.style.display='block';
+            }
+        });
+    </script>
+</body>
+
+</html>

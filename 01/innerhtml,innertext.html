@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        height: 50px;
+        background-color: aquamarine;
+        text-align: center;
+        line-height: 50px;
+    }
+</style>
+<body>
+    <p>日期</p>
+    <div>123</div>
+    <button>点我</button>
+</body>
+<script>
+    let div=document.querySelector('div');
+    let btn=document.querySelector('button');
+    let p=document.querySelector('p');
+    function getDate(){
+        const date=new Date();
+        let year=date.getFullYear();
+        let month=date.getMonth()+1;
+        let da=date.getDate();
+        let day=date.getDay();
+        const week=['日','一','二','三','四','五','六'];
+        return `${year}年${month}月${da}日 星期${week[day]}`;
+    }
+    p.innerText=getDate();
+    btn.onclick=function(){
+        div.innerText=getDate();
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.box{
+    width: 300px;
+    margin: 200px auto;
+    position: relative;
+}
+span{
+    position: absolute;
+    top: 0px;
+    left: -15px;
+    cursor: pointer;
+}
+</style>
+<body>
+    <div class="box">
+        <span>X</span>
+        <img src="./image/tao.png" alt="">
+    </div>
+
+    <script>
+        let sp=document.querySelector('span');
+        let box=document.querySelector('.box');
+        sp.onclick=function(){
+            box.style.display='none';
+        }
+    </script>
+</body>
+</html>

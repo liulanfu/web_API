@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .big{
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .center{
+        width: 300px;
+        height: 300px;
+        background-color: skyblue;
+    }
+</style>
+<body>
+    <div class="big">
+        <div class="center">son</div>
+        <a href="www.baidu.com">百度</a>
+    </div>
+    <script>
+        let big=document.querySelector('.big');
+        let center=document.querySelector('.center')
+
+        //事件捕获阶段(从外往里)
+        // big.addEventListener('click',function(){
+        //     alert('father');
+        // },true)
+        // center.addEventListener('click',function(){
+        //     alert('son');
+        // },true)
+
+        //事件冒泡阶段(从里往外),false其实也可以不写
+        // big.addEventListener('click',function(){
+        //     alert('father');
+        // },false)
+        // center.addEventListener('click',function(){
+        //     alert('son');
+        // },false)
+
+        // big.addEventListener('click',function(e){
+        //    console.log(e);
+        //    console.log(e.target);
+        // })
+
+        // big.addEventListener('click',function(e){
+        //    console.log('target',e.target);  //指向事件触发元素
+        //    console.log('this',this);        ////指向事件绑定元素
+        //    console.log('currentTarget',e.currentTarget);    //指向事件绑定元素
+        // })
+
+        // let link=document.querySelector('a');
+        // link.addEventListener('click',function(e){
+        //     e.preventDefault();
+        // })
+
+        //阻止事件冒泡
+        // big.addEventListener('click',function(e){
+        //    alert('father');
+        // });
+        // center.addEventListener('click',function(e){
+        //    alert('son');
+        //    e.stopPropagation();
+        // })
+    </script>
+</body>
+</html>

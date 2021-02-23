@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .nav {
+        width: 50px;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav li {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .nav li span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background: pink;
+        text-align: center;
+        line-height: 50px;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .nav li span:nth-child(1) {
+        z-index: 1;
+        background: red;
+    }
+
+    .nav li span:nth-child(2) {
+        width: 150px;
+        background: green;
+    }
+</style>
+<!-- <script src="./js/animate.js"></script> -->
+<script src="./js/animate02.js"></script>
+
+<body>
+    <ul class="nav">
+        <li class="box">
+            <span class="arrow">←</span>
+            <span class="con">小胖没几把</span>
+        </li>
+    </ul>
+    <script>
+        const arrow = document.querySelector('.arrow');
+        const con = document.querySelector('.con')
+        arrow.addEventListener('mouseenter', function () {
+            // animate(con,-150,function(){
+            //     arrow.innerHTML="→";
+            // });
+
+            animate({
+                el: con,
+                target: -150,
+                step: 10,
+                interval: 15,
+                // ease: true,
+                callback: function () {
+                    arrow.innerHTML = "→";
+                }
+            });
+            
+        });
+
+        arrow.addEventListener('mouseleave', function () {
+            // animate(con, 0, function () {
+            //     arrow.innerHTML = "←";
+            // });
+
+            animate({
+                el: con,
+                target: 0,
+                step: 10,
+                interval: 15,
+                // ease: true,
+                callback: function () {
+                    arrow.innerHTML = "←";
+                }
+            });
+
+        })
+    </script>
+</body>
+
+</html>

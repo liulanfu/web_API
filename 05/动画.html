@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 120px;
+        height: 120px;
+        background-color: aquamarine;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+    .p {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        position: absolute;
+        top: 200px;
+        left: 0;
+    }
+</style>
+
+<body>
+    <button>开启动画</button>
+    <button class="btn2">开启动画二</button>
+    <div class="box"></div>
+    <div class="p"></div>
+    <script>
+        let box = document.querySelector('.box');
+        let p = document.querySelector('.p');
+        const btn = document.querySelector('button');
+        const btn2 = document.querySelector('.btn2');
+        function animate({
+            el,
+            target,
+            step = 1,  //给个默认值
+            interval = 10,   //给个默认值
+            ease = false,
+            callback = function () {
+            }
+        }) {
+
+            const forword = target - el.offsetLeft > 0 ? true : false;    //判断forword是大于零还是小于零,然后赋给相应的布尔值
+
+            clearInterval(el.timer);
+
+            el.timer = setInterval(() => {
+
+                if (ease) {
+
+                    let Msteop = (target - el.offsetLeft) / step;     //缓动动画的步长
+
+                    if (el.offsetLeft == target) {
+
+                        clearInterval(el.timer); //若走的距离与目标值相等的时候清除定时器
+                        // if (callback) {
+                        //     callback();
+                        // }
+
+                        callback && callback();
+
+                        return;
+
+                    } else {
+
+                        Msteop = Msteop > 0 ? Math.ceil(Msteop) : Math.floor(Msteop);   //判断步长是大于零还是小于零,大于零就向上取值,小于零就向下取值
+
+                        el.style.left = el.offsetLeft + Msteop + 'px';
+
+                        return;
+
+                    }
+
+
+
+                }
+                if (forword) {
+
+                    if (el.offsetLeft >= target) {
+                        clearInterval(el.timer);
+                        // if (callback) {
+                        //     callback();
+                        // }
+                        callback && callback();
+                        return;
+                    }
+                    el.style.left = el.offsetLeft + step + 'px';
+
+                } else {
+
+                    if (el.offsetLeft <= target) {
+                        clearInterval(el.timer);
+                        // if (callback) {
+                        //     callback();
+                        // }
+                        callback && callback();
+                        return;
+                    }
+
+                    el.style.left = el.offsetLeft - step + 'px';
+                }
+            }, interval);
+        }
+
+
+
+
+        btn.addEventListener('click', function () {
+            animate({
+                el: box,
+                target: 200,
+                step: 10,
+                interval: 10,
+                // ease: true,
+                callback: function () {
+                    box.style.backgroundColor = 'red';
+                }
+            });
+        });
+
+        btn2.addEventListener('click', function () {
+            animate({
+                el: box,
+                target: 500,
+                step: 10,
+                interval: 10,
+                ease: true,
+                callback: function () {
+                    box.style.backgroundColor = 'blue';
+                }
+            });
+        })
+        animate({
+            el: p,
+            target: 800,
+            step: 10,
+            interval: 10,
+            // ease: true,
+            // callback: function () {
+            //     p.style.backgroundColor = 'yellow';
+            // }
+        });
+
+
+        // function animate({
+        //     el,
+        //     target,
+        //     step = 1,  //给个默认值
+        //     interval = 10,   //给个默认值
+        //     ease = false
+        // }) {
+
+        //     const forword = target - el.offsetLeft > 0 ? true : false;    //判断forword是大于零还是小于零,然后赋给相应的布尔值
+
+        //     clearInterval(el.timer);
+
+        //     el.timer = setInterval(() => {
+
+        //         if (ease) {
+
+        //             let Msteop = (target - el.offsetLeft) / step;     //缓动动画的步长
+
+        //             if (el.offsetLeft == target) return clearInterval(el.timer); //若走的距离与目标值相等的时候清除定时器
+
+        //             Msteop = Msteop > 0 ? Math.ceil(Msteop) : Math.floor(Msteop);   //判断步长是大于零还是小于零,大于零就向上取值,小于零就向下取值
+
+        //             el.style.left = el.offsetLeft + Msteop + 'px';
+        //             return;
+
+        //         }
+        //         if (forword) {
+
+        //             if (el.offsetLeft >= target) return clearInterval(timer);
+
+        //             el.style.left = el.offsetLeft + step + 'px';
+
+        //         } else {
+
+        //             if (el.offsetLeft <= target) return clearInterval(timer);
+
+        //             el.style.left = el.offsetLeft - step + 'px';
+        //         }
+        //     }, interval);
+        // }
+
+    </script>
+</body>
+
+</html>

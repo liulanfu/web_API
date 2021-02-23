@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <button>点击发送</button>
+    <script>
+        let btn=document.querySelector('button');
+        let i=9;
+        btn.addEventListener('click',function(){
+            btn.disabled=true;
+            btn.innerHTML='还剩下10s'
+            let time=setInterval(() => {
+                if(i<0){
+                clearInterval(time);
+                btn.disabled=false;
+                btn.innerHTML='点击重新发送';
+                i=9;
+            }else{
+                btn.innerHTML=`还剩下${i}s`;
+                i--;
+            }
+            }, 1000);
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var num=10;                //var声明的变量会挂在到window上,声明的方法也会
+        console.log(num);     //10
+        console.log(window.num);  //10  
+
+    let n=12;                   //let,const变量不会挂载到window身上
+        console.log(n);         //12
+        console.log(window.n)   //underfind
+    </script>
+</body>
+</html>

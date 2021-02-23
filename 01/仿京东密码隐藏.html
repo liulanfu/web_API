@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 500px;
+        height: 30px;
+        margin: 300px auto;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+    }
+    .box input{
+        width: 100%;
+        height: 28px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+    }
+    .box label{
+        position: absolute;
+        top: 2px;
+        right: 2px;
+    }
+    img{
+        width: 24px;
+    }
+</style>
+<body>
+    <div class="box">
+        <label for="">
+            <img src="./image/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="inp">
+    </div>
+    <script>
+        let inp=document.getElementById('inp');
+        let eye=document.getElementById('eye');
+        let flag=false;
+        eye.onclick=function(){
+            if(flag){
+                inp.type='password';
+                eye.src='./image/close.png';
+            }else{
+                inp.type='text';
+                eye.src='./image/open.png';
+            }
+            flag=!flag;
+        }
+    </script>
+</body>
+</html>

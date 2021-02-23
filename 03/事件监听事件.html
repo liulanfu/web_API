@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>    
+    <script>
+        //传统注册事件
+        let btn1=document.querySelectorAll('button')[0];
+        btn1.onclick=function(){
+            alert('111');
+        };
+        btn1.onclick=function(){
+            alert('222');
+        }
+
+        //方法监听注册事件
+        let btn2=document.querySelectorAll('button')[1];
+        btn2.addEventListener('click',function(){           //事件监听事件addEventListener(事件类型,事件处理函数,[参数])
+            alert('333');
+        });
+        btn2.addEventListener('click',function(){
+            alert('444');
+        })
+
+    </script>
+</body>
+</html>

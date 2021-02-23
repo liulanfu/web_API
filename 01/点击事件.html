@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+<body>
+    <button id="btn">点击事件</button>
+    <div>点击显示当前时间</div>
+    <script>
+        let btn = document.getElementById('btn');
+        let div1=document.querySelector('div');
+        btn.onclick = function () {
+            // alert("这是点击事件！");
+            div1.innerText=getTime();
+        }
+        
+        function getTime(){
+            const date=new Date();
+            let year=date.getFullYear();
+            let month=date.getMonth()+1;
+            let dates=date.getDate();
+            let day=date.getDay();
+            let arr=['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
+            return `现在是${year}年,${month}月${dates}日 ${arr[day]}`
+        }
+
+
+    </script>
+</body>
+
+</html>

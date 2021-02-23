@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        margin: 200px auto;
+        width: 500px;
+    }
+
+    thead tr {
+        height: 30px;
+        background-color: skyblue;
+    }
+
+    tbody tr {
+        height: 30px;
+    }
+
+    tbody td {
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        color: blue;
+    }
+
+    .change {
+        background-color: burlywood;
+    }
+</style>
+
+<body>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" id="ckAll">
+                </th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>21</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>22</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>22</td>
+                <td>男</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // let ckAll = document.getElementById('ckAll');
+        // let trs = document.getElementById('tb').getElementsByTagName('input');
+        // ckAll.onclick = function () {
+        //     for (let i = 0; i < trs.length; i++) {
+        //         trs[i].checked = this.checked;
+        //     }
+        // }
+        // for (let j = 0; j < trs.length; j++) {
+        //     trs[j].onclick = function () {
+        //     let flag = true;
+        //         for (let x = 0; x < trs.length; x++) {
+        //             if (!trs[x].checked) {
+        //                 flag = false;
+        //                 break;
+        //             }
+        //         }
+        //         ckAll.checked = flag;
+        //     }
+
+        // }
+
+        // let ckAll=document.querySelector('#ckAll');
+        // console.log(ckAll);
+        // let inp=document.querySelector('#tb').querySelectorAll('input')
+        // ckAll.onclick=function(){
+        //     for(let i=0;i<inp.length;i++){
+        //         inp[i].checked=this.checked;
+        //     }
+        // }
+        // for(let j=0;j<inp.length;j++){
+        //     inp[j].onclick=function(){
+        //       let flag=true;
+        //       for(let x=0;x<inp.length;x++){
+        //           if(!inp[x].checked){
+        //               flag=false;
+        //               break;
+        //           }
+        //       }
+        //       ckAll.checked=flag;
+        //     }
+        // }
+
+        let ckAll=document.querySelector('#ckAll');
+        console.log(ckAll);
+        let inp=document.querySelector('#tb').querySelectorAll('input')
+        ckAll.onclick=function(){
+            for(let i=0;i<inp.length;i++){
+                inp[i].checked=this.checked;
+            }
+        }
+        for(let j=0;j<inp.length;j++){
+            inp[j].onclick=function(){
+              const ischecked=[...inp].every(function(item){
+                  return item.checked;
+              });
+              ckAll.checked=ischecked;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

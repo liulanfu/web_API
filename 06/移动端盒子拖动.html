@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        position: absolute;
+        left: 0;
+        width: 120px;
+        height: 120px;
+        background-color: tomato;
+    }
+</style>
+
+<body>
+    <div></div>
+    <script>
+            const div = document.querySelector('div');
+            let startX = 0;   //获取手指初始位置
+            let startY = 0;
+    
+            let x = 0;    //获得盒子原来的位置
+            let y = 0;
+            
+            //事件打双引号可以有联想  “touchstart”
+            div.addEventListener('touchstart', function (e) {      
+                startX = e.targetTouches[0].pageX;   //获取手指初始位置
+                startY = e.targetTouches[0].pageY;
+                x = div.offsetLeft;
+                y = div.offsetTop;
+            });
+            div.addEventListener('touchmove', function (e) {
+                //计算手指移动的距离：手指移动后的坐标-手指初始坐标
+                let moveX = e.targetTouches[0].pageX - startX;
+                let moveY = e.targetTouches[0].pageY - startY;
+                //移动我们的盒子 盒子原来的位置+手指移动的距离
+                div.style.left = moveX + x + 'px';
+                div.style.top = moveY + y + 'px';
+   
+
+                e.preventDefault();   //阻止屏幕滚动的默认行为
+            });
+           
+    </script>
+
+    <!-- <script>
+        const div=document.querySelector('div');
+        div.addEventListener("touchstart",function(){
+            console.log('我点了');
+        });
+        div.addEventListener("touchmove",function(){
+            console.log('我又点了');
+        });
+        div.addEventListener("touchend",function(){
+            console.log('我点完了');
+        })
+    </script> -->
+</body>
+
+</html>

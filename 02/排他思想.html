@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+    <script>
+        // let btn=document.getElementsByTagName('button');
+        // for(let i=0;i<btn.length;i++){
+        //     btn[i].onclick=function(){
+        //         for(let j=0;j<btn.length;j++){
+        //             btn[j].style.backgroundColor='';
+        //         }
+        //         this.style.backgroundColor='pink';
+        //     }   
+        // }
+
+
+        let btn=document.querySelectorAll('button');
+        for(let i=0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                for(let j=0;j<btn.length;j++){
+                    btn[j].style.backgroundColor='';
+                }
+                this.style.backgroundColor='pink';
+            }
+        }
+    </script>
+</body>
+</html>

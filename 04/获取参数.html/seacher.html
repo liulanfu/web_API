@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const params=location.search.substr(1);
+        const paramsArr=params.split('&');
+        // console.log(paramsArr);
+        const obj={};
+        for(let i=0;i<paramsArr.length;i++){
+            const arr=paramsArr[i].split('=');
+            obj[arr[0]]=arr[1];
+            //  console.log(arr);
+        }
+        console.log(obj);
+        document.body.innerHTML=`${obj.username}你好！你现在已经${obj.age}了`;
+    </script>
+</body>
+</html>

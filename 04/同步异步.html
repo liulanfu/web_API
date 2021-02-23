@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //异步任务会先放到webapi里面，然后再到队列里面，然后在执行。执行完后回到回去队列里面找任务
+
+
+        console.log(1);
+
+        //宏任务(会放在webapi然后在放到队列里面)
+        setTimeout(function(){
+            console.log(2);
+        });
+
+        //微任务(直接放到队列里面);
+        queueMicrotask(function(){
+            console.log(3);
+        });
+        console.log(4);
+    </script>
+</body>
+</html>

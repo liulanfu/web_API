@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .preview_img {
+        width: 450px;
+        height: 450px;
+        margin: 300px 100px;
+        border: 1px solid #ccc;
+        position: relative;
+    }
+
+    .mask {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 280px;
+        background-color: yellow;
+        opacity: .5;
+        cursor: move;
+
+    }
+
+    .big {
+        display: none;
+        width: 500px;
+        height: 500px;
+        border: 1px solid #ccc;
+        position: absolute;
+        top: 0;
+        left: 500px;
+        overflow: hidden;
+    }
+
+    .big img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
+
+<body>
+    <div class="preview_img">
+        <img src="./images/small.jpg" alt="">
+        <div class="mask"></div>
+        <div class="big">
+            <img src="./images/big.jpg" alt="" class="bigimg">
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            let preview = document.querySelector('.preview_img');
+            let mask = document.querySelector('.mask');
+            let big = document.querySelector('.big');
+            let bigimg = document.querySelector('.bigimg');
+
+            preview.addEventListener('mouseover', function () {
+                mask.style.display = 'block';
+                big.style.display = 'block';
+            });
+            preview.addEventListener('mouseout', function () {
+                mask.style.display = 'none';
+                big.style.display = 'none';
+            });
+            preview.addEventListener('mousemove', function (e) {
+                let x = e.pageX - preview.offsetLeft;
+                let y = e.pageY - preview.offsetTop;
+                let maskX = x - (mask.offsetWidth) / 2;
+                let maskY = y - (mask.offsetHeight) / 2;
+                let maskMax = preview.offsetWidth - mask.offsetWidth;
+                if (maskX <= 0) {
+                    maskX = 0;
+
+                } else if (maskX >= maskMax) {
+                    maskX = maskMax;
+                }
+                if (maskY <= 0) {
+                    maskY = 0;
+
+                } else if (maskY >= maskMax) {
+                    maskY = maskMax;
+                }
+                mask.style.left = maskX + 'px';
+                mask.style.top = maskY + 'px';
+
+                let bigimg = document.querySelector('.bigimg')
+                let bigMax = bigimg.offsetWidth - big.offsetWidth;
+
+                let bigX = maskX * bigMax / maskMax;
+                let bigY = maskY * bigMax / maskMax;
+
+                bigimg.style.left = -bigX + 'px';
+                bigimg.style.top = -bigY + 'px';
+            })
+        }
+    </script>
+</body>
+
+</html>

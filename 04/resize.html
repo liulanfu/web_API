@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+    }
+</style>
+<body>
+    <div></div>
+    <script>
+        let div=document.querySelector('div');
+        window.addEventListener('resize',function(){
+            if(window.innerWidth<800){
+                div.style.display='none';
+            }else{
+                div.style.display='block';
+            }
+        })
+    </script>
+</body>
+</html>

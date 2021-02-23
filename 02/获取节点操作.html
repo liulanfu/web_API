@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="big">
+        <div class="box1">
+            <span>你好!</span>
+        </div>
+        <div class="box2">
+            <span>你好!</span>
+        </div>
+        <div class="box3">
+            <span>你好!</span>
+        </div>
+        <div class="box4">
+            <span>你好!</span>
+        </div>
+    </div>
+    <script>
+        // //获取亲父级元素
+        // let span=document.querySelector('span');
+        // //parentNode获取亲父级元素
+        // console.log(span.parentNode);
+        // console.log(span.parentNode.parentNode);
+
+
+        // //获取子元素
+
+        // let big=document.querySelector('.big');
+        // console.log(big.childNodes);   //childNodes不仅会获取会元素节点，还会获取文本节点还有空格换行子类的；
+        // console.log(big.children);    //children只会获取元素节点
+
+        // console.log(big.firstChild);        //会获取到文本节点
+        // console.log(big.lastChild);     //会获取到文本节点
+
+        // console.log(big.firstElementChild);    //获取元素节点
+        // console.log(big.lastElementChild);    //获取元素节点
+
+        // console.log(big.children[0]);
+        // console.log(big.children[big.children.length-1]);
+
+
+
+        let box=document.querySelector('.box2');
+
+        // //获取相邻节点
+        // console.log(box.previousSibling);
+        // console.log(box.nextSibling);
+
+        // //获取相邻的元素节点
+        // console.log(box.previousElementSibling);
+        // console.log(box.nextElementSibling);
+
+
+        //创建元素并追加进元素
+        let div5=document.createElement('div')
+        box.appendChild(div5);
+
+        let box1=document.querySelector('.box1')
+        let div0=document.createElement('div');
+        box1.insertBefore(div0,box1.children[0]);
+    </script>
+</body>
+</html>

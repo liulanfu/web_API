@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<style>
+    .nav{
+        width: 300px;
+        height: 30px;
+        margin: 100px auto;
+        line-height: 30px;
+        background-color: aquamarine;
+    }
+    .nav>li{
+        width: 20%;
+        height: 100%;
+        float: left;
+        text-align: center;
+    }
+    .nextnav{
+        background-color: bisque;
+        display: none;
+    }
+    .nextnav li{
+        border-bottom: 1px solid #ccc;
+    }
+    .nextnav li:hover{
+        background-color: burlywood;
+    }
+</style>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="javascript:;">导航</a>
+            <ul class="nextnav">
+                <li><a href="#">新闻报道6</a></li>
+                <li><a href="#">新闻报道1</a></li>
+                <li><a href="#">新闻报道2</a></li>
+                <li><a href="#">新闻报道3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">导航</a>
+            <ul class="nextnav">
+                <li><a href="#">新闻报道6</a></li>
+
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">导航</a>
+            <ul class="nextnav">
+                <li><a href="#">新闻报道6</a></li>
+                <li><a href="#">新闻报道1</a></li>
+               
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">导航</a>
+            <ul class="nextnav">
+                <li><a href="#">新闻报道1</a></li>
+                <li><a href="#">新闻报道2</a></li>
+                <li><a href="#">新闻报道3</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">导航</a>
+             <ul class="nextnav">
+                <li><a href="#">新闻报道6</a></li>
+                <li><a href="#">新闻报道1</a></li>
+                <li><a href="#">新闻报道3</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        let ul=document.querySelector('.nav');
+        let li1=ul.children;  //获取亲儿子
+        // console.log(li1[0].childNodes[3]);    //获取.nextnav
+        // console.log(li1[0].children[1]);    //获取.nextnav
+    // console.log(li1);
+    for(let i=0;i<li1.length;i++){
+        li1[i].onmouseover=function(){
+            // console.log(this.children[1]);
+             this.children[1].style.display='block';
+         };
+        li1[i].onmouseout=function(){
+            this.children[1].style.display='none';
+        }
+    }
+        
+    </script>
+</body>
+</html>

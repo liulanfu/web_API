@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .hader {
+        width: 1200px;
+        height: 200px;
+        background-color: pink;
+        margin: 0 auto 20px;
+    }
+
+    .banner {
+        width: 1200px;
+        height: 450px;
+        background-color: palegreen;
+        margin: 0 auto 20px;
+    }
+
+    .w {
+        width: 1200px;
+        height: 1200px;
+        background-color: peru;
+        margin: 0 auto 20px;
+    }
+
+    .subnav {
+        position: absolute;
+        top: 800px;
+        right: 50%;
+        margin-right: -660px;
+        width: 50px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+
+    <div class="subnav"></div>
+    <div class="hader"></div>
+    <div class="banner"></div>
+    <div class="w"></div>
+
+    <script>
+        // window.pageYOffset 可以获得页面document被卷去的头部；
+        // window.pageXOffset  可以获取页面document被卷去的左侧；
+
+        const subnav = document.querySelector('.subnav');                
+        const banner = document.querySelector('.banner');
+        const w=document.querySelector('.w');
+        const subnavTop=subnav.offsetTop-banner.offsetTop;  //侧边栏改变为fixed时的Top值;
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= banner.offsetTop) {
+                subnav.style.position = 'fixed';
+                subnav.style.top=subnavTop+'px';
+            } else {
+                subnav.style.position = 'absolute';
+                subnav.style.top=800+'px';
+            }
+
+            const top=w.getBoundingClientRect().top;   //获取主题元素距离视口顶部的位置
+            // console.log(top);
+            if(top<=0){
+                subnav.innerHTML='<a href="javascript:;">返回顶部</a>';
+                const a=subnav.firstElementChild;
+                console.log(a);
+                a.addEventListener('click',function(){
+                    window.scrollTo({
+                        top:0,
+                        behavior:'smooth'
+                    });
+                })
+            }else{
+                subnav.innerHTML='';
+            }
+        });
+    </script>
+</body>
+
+</html>

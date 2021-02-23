@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="animate.js"></script>
+</head>
+<style>
+    .box {
+        width: 120px;
+        height: 120px;
+        background-color: aquamarine;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+    <script>
+        let box = document.querySelector('.box');
+        animate(box, 400, function () {
+            box.style.backgroundColor='red';
+        });
+    </script>
+</body>
+
+</html>

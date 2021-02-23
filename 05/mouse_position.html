@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 500px;
+        height: 500px;
+        background-color: tomato;
+        margin: 100px auto;
+    }
+</style>
+<body>
+    <div></div>
+    <script>
+        let div=document.querySelector('div');
+        div.addEventListener('mousemove',function(e){
+            let x=e.pageX-div.offsetLeft;
+            let y=e.pageY-div.offsetTop;
+            div.innerHTML=`x=${x},y=${y}`
+        })
+    </script>
+</body>
+</html>

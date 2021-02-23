@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+</head>
+<style>
+    body{
+        background: url(./images/bg1.jpg) no-repeat center top;
+    }
+    .bgbox{
+        width: 550px;
+        height: 90px;
+        margin: 300px auto;
+        background: #fff;
+        border-top: 1px solid transparent;
+    }
+    ul{
+        overflow: hidden;
+        margin: 5px auto;
+    }
+    ul li{
+        float: left;
+        width: 100px;
+        margin: 0 5px;
+    }
+    ul li img{
+        width: 100%;
+        height: 80px;
+    }
+</style>
+<body>
+    <div class="bgbox">
+        <ul>
+            <li><img src="images/bg1.jpg" alt=""></li>
+            <li><img src="images/bg2.jpg" alt=""></li>
+            <li><img src="images/bg3.jpg" alt=""></li>
+            <li><img src="images/bg4.jpg" alt=""></li>
+            <li><img src="images/bg5.jpg" alt=""></li>
+        </ul>
+    </div>
+    <script>
+        // let img=document.querySelector('.bgbox').querySelectorAll('img');
+        // for(let i=0;i<img.length;i++){
+        //     img[i].onclick=function(){
+        //         document.body.style.backgroundImage='url('+this.src+')';   //documen.body是获取body。this.src是获取当前图片的地址
+        //     }
+        // }
+
+        let imgs=document.querySelector('.bgbox').querySelectorAll('img');
+        for(let i=0;i<imgs.length;i++){
+            imgs[i].onclick=function(){
+                document.body.style.backgroundImage=`url(${this.src})`;
+            }
+        }
+    </script>
+</body>
+</html>

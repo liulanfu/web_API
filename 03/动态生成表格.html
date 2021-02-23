@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        width: 500px;
+        margin: 150px auto;
+        background-color: beige;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const dates = [
+            {
+                name: '老刘',
+                subjec: 'javascript',
+                score: 98
+            },
+            {
+                name: '小胖',
+                subjec: 'javascript',
+                score: 88
+            },
+            {
+                name: '吴琦',
+                subjec: 'javascript',
+                score: 95
+            },
+            {
+                name: '大胖',
+                subjec: 'javascript',
+                score: 92
+            },
+            {
+                name: '欧阳',
+                subjec: 'javascript',
+                score: 92
+            },
+            {
+                name: '家良',
+                subjec: 'javascript',
+                score: 80
+            }
+
+        ]
+        // let tbody = document.querySelector('tbody')
+        // for (let i = 0; i < dates.length; i++) {
+        //     let tr = document.createElement('tr');
+        //     tbody.appendChild(tr);
+        //     //遍历数组里面的对象
+        //     for (let k in dates[i]) {
+        //         let td = document.createElement('td');
+        //         td.innerHTML = dates[i][k];
+        //         tr.appendChild(td);
+        //     }
+
+        //     let del = document.createElement('td');
+        //     del.innerHTML = '<a href="javascript:;">删除</a>';
+        //     tr.appendChild(del);
+        // }
+        // const table = document.querySelector('table');
+        // let a = table.querySelectorAll('a');
+        // for (let j = 0; j < a.length; j++) {
+        //     a[j].onclick = function () {
+        //         tbody.removeChild(this.parentNode.parentNode);
+        //     }
+        // }
+
+        let tbody = document.querySelector('tbody');
+        const fragment = document.createDocumentFragment();
+        for (let i = 0; i < dates.length; i++) {
+            let tr = document.createElement('tr');
+
+            for (let k in dates[i]) {
+                let td = document.createElement('td');
+                td.innerHTML = dates[i][k];
+                tr.appendChild(td);
+            }
+
+            //创建删除单元格；
+            let del = document.createElement('td');
+            del.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(del);
+
+            // tbody.appendChild(tr);    //先把td添加到tr里面，然后在把tr添加到tbody里面，这样可以减少浏览器渲染次数。
+
+            //给a添加删除事件
+            let as = del.firstChild;
+            as.onclick = function () {
+                tbody.removeChild(as.parentNode.parentNode);
+            }
+
+            fragment.appendChild(tr);
+        }
+        tbody.appendChild(fragment);
+    </script>
+</body>
+
+</html>

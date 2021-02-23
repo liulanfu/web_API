@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(location.search);
+
+        //获取url上的参数，并且去除头部的“？”
+        const params=location.search.substr(1);   //截取字符串
+        //分割参数 uname=pink,age=16
+        const paramsArr=params.split('&');
+        console.log(paramsArr);
+        //初始化对象，用于存放格式化后的参数
+        const obj={};
+        
+        //遍历分割后的参数
+        for(let i=0;i<paramsArr.length;i++){
+            //分割后的 属性 和 值 [username,red],[age,11]
+            const arr=paramsArr[i].split('=');
+            //将参数保存到对象上{username:"red",age:11}
+            obj[arr[0]]=arr[1];
+        }
+        document.body.innerHTML=`${obj.username}欢迎你,你今年已经${obj.age}岁了`;
+        console.log(obj);
+    </script>
+</body>
+</html>

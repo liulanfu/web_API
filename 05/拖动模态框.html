@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .hit{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+            font-size: 30px;
+        }
+        ul{
+            list-style: none;
+        }
+        .denru{
+            box-sizing: border-box;
+            position:fixed;
+            top: 200px;
+            left:50%;
+            transform: translateX(-50%);
+            padding: 10px;
+            width: 500px;
+            height: 300px;
+            background-color:white;
+            box-shadow: 0 0 20px white;
+            display: none;
+        }
+        .denru li:nth-child(1){
+            margin: 10px 0 25px;
+            cursor: move;
+        }
+        .denru h3{
+            text-align: center;
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .denru li:nth-child(2),
+        .denru li:nth-child(3){
+            margin: 20px 0;
+            height: 40px;
+        }
+        .denru li:nth-child(2) input,
+        .denru li:nth-child(3) input{
+            height: 100%;
+            width: 380px;
+            outline: none;
+            text-indent: 1em;
+            font-size: 16px;
+        }
+        .denru li:nth-child(4){
+            text-align: center;
+            margin-top: 50px;
+        }
+        button{
+            outline: none;
+            width: 280px;
+            height: 50px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            background-color: white;
+        }
+        .close{
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 5px white;
+        }
+    </style>
+
+<body>
+    <h3 class="hit"><a href="javascript:;">点击,弹出登入框</a></h3>
+    <div class="denru">
+        <span class="close">关闭</span>
+        <form action="#">
+            <ul>
+                <li id="title">
+                    <h3>登入会员</h3>
+                </li>
+                <li><span>　用户名：</span><input type="text" placeholder="亲输入用户名"></li>
+                <li><span>登入密码：</span><input type="password" placeholder="请输入登入密码"></li>
+                <li><button>登入会员</button></li>
+            </ul>
+        </form>
+    </div>
+    <script>
+        let hit=document.querySelector('.hit');
+        let denru=document.querySelector('.denru');
+        let close=document.querySelector('.close');
+        let title=document.querySelector('#title');
+        // console.log(title)
+        hit.addEventListener('click',function(){
+            denru.style.display='block';
+            document.body.style.backgroundColor='rgba(0, 0, 0, .5)';
+
+        });
+        close.addEventListener('click',function(){
+            denru.style.display='none';
+            document.body.style.backgroundColor='';
+        });
+
+        title.addEventListener('mousedown',function(e){
+            
+            let x=e.pageX-denru.offsetLeft;
+            let y=e.pageY-denru.offsetTop;
+            // console.log(e.pageX,denru.offsetLeft);
+            // console.log(x,y);
+
+            document.addEventListener('mousemove',move);
+        
+            function move(e){
+                denru.style.left=e.pageX-x+'px';
+                denru.style.top=e.pageY-y+'px';
+            };
+
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',move); //移除事件
+            })
+        })
+
+    </script>
+</body>
+</html>

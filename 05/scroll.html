@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 350px;
+        height: 350px;
+        border: 10px solid red;
+        background-color: pink;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+        <p>ssasdsdasd</p>
+    </div>
+    <script>
+        let div=document.querySelector('div');
+        console.log(div.scrollWidth,div.scrollHeight);   //文本内容高低,包含padding
+        console.log(div.scrollTop,div.scrollLeft)       
+    </script>
+</body>
+</html>

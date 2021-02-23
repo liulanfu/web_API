@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./image/s.gif" alt="">
+    <p>上午好</p>
+<script>
+    let img=document.querySelector('img');
+    let p=document.querySelector('p');
+    const date=new Date;
+    let h=date.getHours();
+    if(h<12){
+        p.innerHTML='上午好!';
+        img.src="./image/s.gif";
+    }else if(h<18){
+        p.innerHTML='下午好!';
+        img.src="./image/x.gif";
+    }else{
+        p.innerHTML='晚午好!';
+        img.src="./image/w.gif";
+    }
+</script>
+</body>
+</html>

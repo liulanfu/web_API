@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/base.css"> -->
+</head>
+<style>
+    table{
+        margin: 200px auto;
+        width: 500px;
+    }
+    thead tr{
+        height: 30px;
+        background-color:skyblue;
+    }
+    tbody tr{
+        height: 30px;
+    }
+    tbody td{
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        color: blue;
+    }
+    .change{
+        background-color: burlywood;
+    }
+</style>
+<body>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>身高</th>
+                <th>体重</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>吴琦</td>
+                <td>21</td>
+                <td>男</td>
+                <td>180</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>小胖</td>
+                <td>22</td>
+                <td>男</td>
+                <td>150</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>小胖</td>
+                <td>22</td>
+                <td>男</td>
+                <td>150</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>小胖</td>
+                <td>22</td>
+                <td>男</td>
+                <td>150</td>
+                <td>150</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        // let tr=document.querySelector('tbody').querySelectorAll('tr');
+        // for(let i=0;i<tr.length;i++){
+        //     tr[i].onmouseover=function(){
+        //         this.classList.add('change');
+        //     }
+        //     tr[i].onmouseout=function(){
+        //         this.classList.remove('change');
+        //     }
+        // }
+
+        let trs=document.querySelector('tbody').querySelectorAll('tr');
+        for(let i=0;i<trs.length;i++){
+            trs[i].onmouseover=function(){
+                trs[i].classList.add('change');
+            };
+            trs[i].onmouseout=function(){
+                trs[i].classList.remove('change');
+            }
+
+        }
+    </script>
+</body>
+</html>

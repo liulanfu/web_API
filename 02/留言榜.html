@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .box {
+        width: 500px;
+        margin: 100px auto;
+        /* background-color: pink; */
+        overflow: hidden;
+    }
+
+    .box textarea {
+        width: 100%;
+        height: 100px;
+        resize: none;
+    }
+
+    .box button {
+        width: 50px;
+        height: 30px;
+        margin-top: 20px;
+        float: right;
+    }
+
+    .box ul {
+        margin-top: 100px;
+    }
+
+    .box ul li {
+        width: 100%;
+        margin-top: 5px;
+        /* background-color: plum; */
+    }
+    .box ul li a{
+        float: right;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <textarea></textarea>
+        <button>发布</button>
+        <ul></ul>
+    </div>
+    <script>
+        let textarea = document.querySelector('textarea');
+        let btn = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        btn.onclick = function () {
+            let value = textarea.value.trim();
+            if (!value)  return alert("请输入内容！");
+
+            let li = document.createElement('li');
+
+            let as=document.createElement('a');
+            as.setAttribute('href','javascript:;');
+            as.innerHTML=('删除');
+
+            li.innerHTML = textarea.value;
+            ul.insertBefore(li, ul.children[0]);
+            li.appendChild(as);
+
+            textarea.value = "";
+
+            // console.log(as)
+            let del=document.querySelector('ul').querySelectorAll('a');
+            for(let i=0;i<del.length;i++){
+                del[i].onclick=function(){
+                    ul.removeChild(this.parentNode);
+                }
+            }
+                      
+        }
+    </script>
+</body>
+
+</html>

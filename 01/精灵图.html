@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li {
+        list-style: none;
+    }
+
+    .box {
+        width: 176px;
+        /* background-color: aquamarine; */
+        margin: 200px auto;
+
+    }
+
+    ul {
+        overflow: hidden;
+        padding: 0;
+    }
+
+    ul li {
+        width: 24px;
+        height: 24px;
+        float: left;
+        margin: 10px 10px;
+        background: url(./image/sprite.png) no-repeat;
+        background-position: 0 calc(-44px*var(--index));    /*用css改变精灵图的为 */
+    }
+
+    a {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <ul>
+            <li style="--index:0"><a href="javascript:;"></a></li>
+            <li style="--index:1"><a href="javascript:;"></a></li>
+            <li style="--index:2"><a href="javascript:;"></a></li>
+            <li style="--index:3"><a href="javascript:;"></a></li>
+            <li style="--index:4"><a href="javascript:;"></a></li>
+            <li style="--index:5"><a href="javascript:;"></a></li>
+            <li style="--index:6"><a href="javascript:;"></a></li>
+            <li style="--index:7"><a href="javascript:;"></a></li>
+            <li style="--index:8"><a href="javascript:;"></a></li>
+            <li style="--index:9"><a href="javascript:;"></a></li>
+            <li style="--index:10"><a href="javascript:;"></a></li>
+            <li style="--index:11"><a href="javascript:;"></a></li>
+        </ul>
+    </div>
+    <!-- <script>
+        let lis=document.querySelectorAll('li');
+        for(let i=0;i<lis.length;i++){
+            lis[i].style.backgroundPositionY=`${-i*44}px`;
+        }
+    </script> -->
+</body>
+
+</html>

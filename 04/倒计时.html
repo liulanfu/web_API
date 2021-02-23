@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 400px;
+        margin: 200px auto;
+    }
+
+    .box span {
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        background-color: #333;
+        vertical-align: middle;
+        color: #fff;
+    }
+
+    .box button {
+        margin: 15px 5px 0;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <h3 style="font-size: 22px;">距离回家 :</h3>
+        剩余
+        <span class="hours">0</span> 天
+        <span class="hours">0</span> 小时
+        <span class="minute">0</span> 分钟
+        <span class="second">0</span> 秒
+        <button class="start">开始倒计时</button>
+        <button class="close">关闭倒计时</button>
+    </div>
+    <script>
+        // let djs=setInterval(() => {
+        //     const now = +new Date();
+        //     const newtime = +new Date('2021-2-5');
+        //     let yes = (newtime - now) / 1000;
+        //     let day =parseInt( yes / 60 / 60 / 24);
+        //     day = day < 10 ? '0' + day : day;
+        //     let h = parseInt(yes / 60 / 60 % 60);
+        //     h = h < 10 ? '0' + h : h;
+        //     let m = parseInt(yes / 60 % 60);
+        //     m = m < 10 ? '0' + m : m;
+        //     let s =parseInt( yes % 60);
+        //     s = s < 10 ? '0' + s : s;
+        //     let times=document.querySelectorAll('span');
+        //     times[0].innerText=day;
+        //     times[1].innerText=h;
+        //     times[2].innerText=m;
+        //     times[3].innerText=s;
+
+        // }, 1000);
+
+        let times = document.querySelectorAll('span');
+        getTime();    //先调用一次函数防止刷新的时候空白；
+
+        let clock = setInterval(getTime, 1000);
+
+        function getTime() {
+            const now = +new Date();
+            const newtime = +new Date('2021-2-6');
+            let yes = (newtime - now) / 1000;
+            let day = parseInt(yes / 60 / 60 / 24);
+            day = day < 10 ? '0' + day : day;
+            let h = parseInt(yes / 60 / 60 % 60);
+            h = h < 10 ? '0' + h : h;
+            let m = parseInt(yes / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            let s = parseInt(yes % 60);
+            s = s < 10 ? '0' + s : s;
+            times[0].innerText = day;
+            times[1].innerText = h;
+            times[2].innerText = m;
+            times[3].innerText = s;
+        }
+        // let start = document.querySelector('.start');
+        // start.disabled = true;
+        // let cls = document.querySelector('.close');
+        // cls.addEventListener('click', function () {
+        //     clearInterval(clock);
+        //     cls.disabled = true;
+        //     start.disabled = false;
+        // })
+        // start.addEventListener('click', function () {
+        //     clock = setInterval(getTime, 1000);
+        //     start.disabled = true;
+        //     cls.disabled = false;
+        // });
+
+        //永远只有一个定时器(方案二)
+        let start = document.querySelector('.start');
+        let cls = document.querySelector('.close');
+        cls.addEventListener('click', function () {
+            clearInterval(clock);
+        })
+        start.addEventListener('click', function () {
+            clearInterval(clock);
+            clock = setInterval(getTime, 1000);
+        });
+
+
+
+    </script>
+</body>
+
+</html>

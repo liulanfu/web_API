@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        width: 200vw;
+        height: 200vh;
+    }
+</style>
+<body>
+    <script>
+        document.addEventListener('click',function(e){
+            //鼠标在浏览器可视区域的坐标
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log('---------');
+
+            //鼠标在文档中的坐标
+            console.log(e.pageX);
+            console.log(e.pageY);
+            console.log('---------');
+
+            // 鼠标在屏幕中的坐标
+            console.log(e.screenX);
+            console.log(e.screenY);
+            console.log('---------');
+        })
+    </script>
+</body>
+</html>

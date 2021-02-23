@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 500px;
+        height: 500px;
+        border: 10px solid red;
+        background-color: pink;
+        margin: 400px auto;
+        padding:10px;
+        overflow: auto;
+    }
+</style>
+<body>
+   
+    <div> <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p>
+        <p>sdafas</p></div>
+    
+    <script>
+        const div=document.querySelector('div');
+        console.log('div.offsetLeft',div.offsetLeft);     //距离文档顶部的距离(有滚动条也是距离“文档”顶部的距离)
+        console.log('div.offsetTop',div.offsetTop);
+        console.log('div.offsetWidth',div.offsetWidth);   //包括边框,padding
+        console.log('div.offsetHeight',div.offsetHeight);
+
+        console.log('--------------------------');
+
+        console.log('div.clientLeft',div.clientLeft);    //左边框的距离（距离）
+        console.log('div.clientTop',div.clientTop);      //上边框的距离（距离）
+        console.log('div.clientWidth',div.clientWidth);     //不包括边框,但包括padding
+        console.log('div.clientHeight',div.clientHeight);   //不包括边框,但包括padding
+
+        console.log('---------------------------');
+
+        console.log("div.scrollLeft",div.scrollLeft);       //返回被卷去的左侧距离，返回数值不带单位  滚动条滚动的距离
+        console.log("div.scrollTop",div.scrollTop);         //返回被卷上去的上侧距离，返回数值不带单位
+        console.log("div.scrollWidth",div.scrollWidth);     //不包括边框,但包括padding  返回自身实际的宽度，不含边框，返回的是数值不带单位
+        console.log("div.scrollh" ,div.scrollHeight);       //不包括边框,但包括padding  返回自身实际的高度，不含边框，返回数值不带单位
+        
+        // div.addEventListener('scroll',function(){
+        //     console.log("div.scrollTop",div.scrollTop);
+        // })
+
+    </script>
+</body>
+</html>

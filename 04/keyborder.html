@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // document.addEventListener('keydown',function(e){
+        //     console.log('出发了keydown',e.keyCode);
+        // });
+        // document.addEventListener('keyup',function(){
+        //     console.log('出发了keyup');
+        // });
+        // document.addEventListener('keypress',function(){
+        //     console.log('出发了keypress');
+        // })
+
+        const KEY_CODE_A=65;
+        document.addEventListener('keyup',function(e){
+            console.log(e.keyCode);
+            if(e.keyCode==KEY_CODE_A){
+                alert('你按了a键');
+            }else{
+                alert('你按了非a键');
+            }
+        })
+    </script>
+</body>
+</html>
